@@ -47,9 +47,9 @@ Markdown in your own vault.
 ## Install
 
 - **Manual:** download `main.js`, `manifest.json` and `styles.css` from the
-  [latest release](https://github.com/Hakubisual/obtion/releases/latest) into
+  [latest release](https://github.com/Hakubisual/notebase/releases/latest) into
   `<vault>/.obsidian/plugins/obtion/`, then enable **Notebase** under Settings → Community plugins.
-- **BRAT (beta):** add `Hakubisual/obtion` in the BRAT plugin.
+- **BRAT (beta):** add `Hakubisual/notebase` in the BRAT plugin.
 - **Community plugins:** [Notebase in the community directory](https://community.obsidian.md/plugins/obtion).
 
 The plugin id is `obtion` (the project's earlier name), so the plugin folder is `.obsidian/plugins/obtion/`. Code

@@ -37,7 +37,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Hakubisual/obtion.git"
+		"url": "https://github.com/Hakubisual/notebase.git"
 	},
-	"homepage": "https://github.com/Hakubisual/obtion"
+	"bugs": {
+		"url": "https://github.com/Hakubisual/notebase/issues"
+	},
+	"homepage": "https://github.com/Hakubisual/notebase"
 }
