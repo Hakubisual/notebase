@@ -1,0 +1,20 @@
+---
+description: Rules for editing Obtion notes (project status, tasks, decisions, wiki) in this vault
+globs: Obtion/**/*.md
+alwaysApply: false
+---
+
+- Notes in `Obtion/` with `kit: project|task|decision|wiki|record` in frontmatter are Obtion notes.
+- Use only these statuses:
+  - project `active|paused|done|dropped`
+  - task `todo|doing|blocked|done|dropped`
+  - decision `open|decided|superseded`
+  - wiki `draft|published|archived`
+  - record `active|archived`
+- Human fields: `owner`, `due` (YYYY-MM-DD), `priority`, `project: "[[Name]]"`, `decided`, `verified`, `parent: "[[Name]]"`.
+- Project notes keep `## Principle`, `## To do`, `## Done`, `## Verification limits` in that order.
+- Never invent owners, dates, completion or verification; leave unknown values empty.
+- Never mark `done`/`verified` without evidence the user can open.
+- Never overwrite, rename or delete notes; never edit `.obsidian/`.
+- When changing a status, append `- YYYY-MM-DD · status a -> b · reason` to the body.
+- Propose bulk changes (more than five notes) before applying them.

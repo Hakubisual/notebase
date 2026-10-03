@@ -1,0 +1,9 @@
+.obtion-transfer { overflow-wrap: anywhere; min-width: 0; }
+.obtion-transfer .setting-item { flex-wrap: wrap; gap: var(--size-4-2); }
+.obtion-transfer .setting-item-info { min-width: 0; }
+.obtion-transfer .setting-item-control { flex-wrap: wrap; max-width: 100%; }
+.obtion-transfer input, .obtion-transfer select { max-width: 100%; min-width: 0; }
+.obtion-transfer .obtion-transfer-muted { color: var(--text-muted); }
+.obtion-transfer .obtion-transfer-preview { max-height: 40vh; overflow-y: auto; }
+.obtion-transfer .obtion-transfer-row { padding: var(--size-4-2); margin-block: var(--size-4-2); border: var(--border-width) solid var(--background-modifier-border); border-radius: var(--radius-s); }
+.obtion-transfer summary { cursor: pointer; color: var(--text-accent); margin-block: var(--size-4-2); }

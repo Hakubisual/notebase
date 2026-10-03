@@ -1,0 +1,64 @@
+.obtion-navigation .obtion-navigation-controls {
+	padding: var(--size-4-2) var(--size-4-3);
+	border-bottom: var(--border-width) solid var(--background-modifier-border);
+}
+
+.obtion-navigation .obtion-navigation-heading,
+.obtion-navigation .obtion-navigation-fields {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: var(--size-4-1) var(--size-4-2);
+}
+
+.obtion-navigation .obtion-navigation-title {
+	font-weight: var(--font-semibold);
+	color: var(--text-normal);
+}
+
+.obtion-navigation .obtion-navigation-badge {
+	font-size: var(--font-smallest);
+	color: var(--text-accent);
+	background: var(--background-secondary);
+	border-radius: var(--radius-s);
+	padding: var(--size-2-1) var(--size-4-1);
+}
+
+.obtion-navigation .obtion-navigation-fields,
+.obtion-navigation .obtion-navigation-path {
+	font-size: var(--font-smaller);
+	margin-top: var(--size-4-1);
+}
+
+.obtion-navigation .obtion-navigation-muted,
+.obtion-navigation .obtion-navigation-path,
+.obtion-navigation .obtion-navigation-label {
+	color: var(--text-muted);
+}
+
+.obtion-navigation .suggestion-item,
+.obtion-navigation .prompt-instruction,
+.obtion-navigation .setting-item-info,
+.obtion-navigation .obtion-navigation-heading > *,
+.obtion-navigation .obtion-navigation-fields > *,
+.obtion-navigation .obtion-navigation-path {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.obtion-navigation .prompt-instruction {
+	white-space: normal;
+}
+
+.obtion-navigation .setting-item,
+.obtion-navigation .setting-item-control,
+.obtion-navigation .prompt-instructions {
+	flex-wrap: wrap;
+	gap: var(--size-4-2);
+}
+
+.obtion-navigation .setting-item-control input[type='text'],
+.obtion-navigation .setting-item-control select {
+	max-width: 100%;
+	min-width: 0;
+}

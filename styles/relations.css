@@ -1,0 +1,72 @@
+.obtion-relations {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	color: var(--text-normal);
+}
+
+.obtion-relations .obtion-relations-customize {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-m);
+	padding: var(--size-4-2);
+}
+
+.obtion-relations .setting-item {
+	flex-wrap: wrap;
+	gap: var(--size-4-2);
+}
+
+.obtion-relations .setting-item-info,
+.obtion-relations .setting-item-control {
+	min-width: 0;
+}
+
+.obtion-relations .setting-item-control {
+	flex-wrap: wrap;
+	max-width: 100%;
+}
+
+.obtion-relations input,
+.obtion-relations select,
+.obtion-relations progress {
+	max-width: 100%;
+}
+
+.obtion-relations .obtion-relations-group {
+	border-top: 1px solid var(--background-modifier-border);
+	padding-block: var(--size-4-2);
+}
+
+.obtion-relations .obtion-relations-note {
+	background: var(--background-secondary);
+	border-radius: var(--radius-s);
+	padding: var(--size-4-3);
+	margin-block: var(--size-4-2);
+}
+
+.obtion-relations .obtion-relations-fields {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+	gap: var(--size-2-2) var(--size-4-2);
+	font-size: var(--font-smallest);
+}
+
+.obtion-relations .obtion-relations-fields dd {
+	margin: 0;
+}
+
+.obtion-relations .obtion-relations-fields dt,
+.obtion-relations .obtion-relations-muted {
+	color: var(--text-muted);
+}
+
+.obtion-relations .obtion-relations-counts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-2);
+	font-size: var(--font-smallest);
+}
+
+.obtion-relations progress {
+	width: 100%;
+	accent-color: var(--interactive-accent);
+}

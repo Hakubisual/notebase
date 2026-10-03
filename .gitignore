@@ -1,0 +1,7 @@
+node_modules/
+main.js
+styles.css
+dist/
+*.map
+data.json
+.DS_Store

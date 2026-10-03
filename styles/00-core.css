@@ -1,0 +1,4 @@
+/* Shared tokens. Use Obsidian CSS variables only; no hard-coded colors. */
+.obtion-muted {
+	color: var(--text-muted);
+}
