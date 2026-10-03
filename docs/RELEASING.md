@@ -21,7 +21,8 @@ Official references:
    (`actions/attest-build-provenance`) and publishes the GitHub release with `main.js`, `manifest.json` and
    `styles.css`. It can also be run manually for an existing tag.
 5. Verify: `gh attestation verify main.js --repo Hakubisual/notebase` on the downloaded asset, then install the release
-   in a disposable vault and check the plugin loads.
+   in a disposable vault and check the plugin loads. Attestations for 0.1.0 and 0.1.1 were signed before the
+   repository was renamed, so verify those with `--repo Hakubisual/obtion` (or `--owner Hakubisual`).
 
 ## Policy notes
 
