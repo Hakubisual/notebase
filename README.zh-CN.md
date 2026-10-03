@@ -24,6 +24,8 @@ Notebase 让你一眼看清每个项目的**原则、待办、已完成的工作
 
 界面目前为英文。
 
+![在项目状态看板上隐藏和调整字段顺序（演示）](docs/images/demo.gif)
+
 | 状态看板 | 自定义 |
 |---|---|
 | ![状态看板](docs/images/status-board.png) | ![自定义](docs/images/customize.png) |

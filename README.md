@@ -24,6 +24,8 @@ Markdown in your own vault.
 
 ## Screenshots
 
+![Hiding and reordering fields on the project status board (demo)](docs/images/demo.gif)
+
 | Status board | Customize |
 |---|---|
 | ![Status board](docs/images/status-board.png) | ![Customize](docs/images/customize.png) |
