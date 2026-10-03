@@ -1,12 +1,12 @@
 # Architecture
 
-Obtion is a single Obsidian plugin made of a small core and six independent features. Everything runs locally
+Notebase is a single Obsidian plugin made of a small core and six independent features. Everything runs locally
 through the Obsidian API; there is no network code.
 
 ## Data model
 
-A note joins Obtion when its frontmatter has `kit: <kind>` with a known kind **and** it lives inside the workspace folder
-(setting, default `Obtion`). Nothing else is read, edited or deleted.
+A note joins Notebase when its frontmatter has `kit: <kind>` with a known kind **and** it lives inside the workspace folder
+(setting, default `Notebase`). Nothing else is read, edited or deleted.
 
 | kind | default status | statuses | typical properties |
 |---|---|---|---|
@@ -42,12 +42,17 @@ per-feature saved preferences and settings sections. Features never import each 
 
 | folder | user-facing parts | identifiers |
 |---|---|---|
-| `status-board` | project cards, create project/task/decision, sample data | view `obtion-status-board`, block `obtion-status` |
-| `wiki` | wiki pages, sub-pages, page tree | view `obtion-wiki-tree`, blocks `obtion-children`, `obtion-breadcrumb` |
-| `database` | table / board / gallery, inline edits | view `obtion-database`, block `obtion-db` |
-| `relations` | templates folder, new note from template, relations panel, rollups | view `obtion-relations`, block `obtion-rollup` |
+| `status-board` | project cards, create project/task/decision, sample data | view `obtion-status-board`, block `notebase-status` |
+| `wiki` | wiki pages, sub-pages, page tree | view `obtion-wiki-tree`, blocks `notebase-children`, `notebase-breadcrumb` |
+| `database` | table / board / gallery, inline edits | view `obtion-database`, block `notebase-db` |
+| `relations` | templates folder, new note from template, relations panel, rollups | view `obtion-relations`, block `notebase-rollup` |
 | `navigation` | quick find with query syntax, go to project, next open task, recent | modals only |
 | `transfer` | import an extracted Notion export, CSV/Markdown export | modals only |
+
+View types and CSS classes keep the `obtion-` prefix of the plugin id so saved workspace layouts keep working. The
+0.1.0 code block names (`obtion-status`, `obtion-db`, `obtion-children`, `obtion-breadcrumb`, `obtion-rollup`) are
+registered as aliases of the `notebase-*` blocks. Indexing walks only the workspace folder, the template picker only
+the templates folder and the importer only the folder you choose; the vault is never enumerated as a whole.
 
 Each feature keeps its user preferences under its own key in the plugin's `data.json` and parses them at load time,
 so a damaged value falls back to defaults instead of failing.

@@ -44,7 +44,8 @@ export const databaseFeature: KitFeature = {
 			};
 			void open().catch((error: unknown) => new Notice(error instanceof Error ? error.message : String(error)));
 		} });
-		ctx.plugin.registerMarkdownCodeBlockProcessor('obtion-db', (source, element, markdown) => {
+		// `obtion-db` is the 0.1.0 name, kept so existing notes keep rendering.
+		for (const language of ['notebase-db', 'obtion-db']) ctx.plugin.registerMarkdownCodeBlockProcessor(language, (source, element, markdown) => {
 			let query: DbQuery;
 			try {
 				const raw: unknown = source.trim() === '' ? {} : parseYaml(source);

@@ -1,12 +1,12 @@
-# Vault rules for AI assistants (Obtion)
+# Vault rules for AI assistants (Notebase)
 
 Copy this file to the root of your vault. Codex reads `AGENTS.md`; save a copy as `CLAUDE.md` for Claude Code.
-Change the folder name below if you changed it in Obtion's settings.
+Change the folder name below if you changed it in Notebase's settings.
 
 ## Where things live
 
-- Workspace folder: `Obtion/` by default (Projects, Tasks, Decisions, Wiki, Notes, Templates, Imports, Exports).
-- A note belongs to Obtion only if it is inside that folder and its frontmatter has `kit: <kind>`.
+- Workspace folder: `Notebase/` by default (Projects, Tasks, Decisions, Wiki, Notes, Templates, Imports, Exports).
+- A note belongs to Notebase only if it is inside that folder and its frontmatter has `kit: <kind>`.
 
 ## Frontmatter
 

@@ -193,7 +193,10 @@ export function registerPanel(ctx: KitContext): void {
 		await leaf.setViewState({ type: RELATIONS_VIEW, active: true });
 		await ctx.app.workspace.revealLeaf(leaf);
 	} });
-	ctx.plugin.registerMarkdownCodeBlockProcessor('obtion-rollup', (source: string, el: HTMLElement, context: MarkdownPostProcessorContext) => {
-		context.addChild(new RollupBlock(el, ctx, source, context.sourcePath));
-	});
+	// `obtion-rollup` is the 0.1.0 name, kept so existing notes keep rendering.
+	for (const language of ['notebase-rollup', 'obtion-rollup']) {
+		ctx.plugin.registerMarkdownCodeBlockProcessor(language, (source: string, el: HTMLElement, context: MarkdownPostProcessorContext) => {
+			context.addChild(new RollupBlock(el, ctx, source, context.sourcePath));
+		});
+	}
 }

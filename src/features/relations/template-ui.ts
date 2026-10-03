@@ -2,6 +2,7 @@ import { Modal, Notice, parseYaml, Setting, stringifyYaml, SuggestModal, type TF
 import type { KitContext } from '../../core/context';
 import { checkKitNoteEdit } from '../../core/guards';
 import { FIELD_LABELS, isInternalField, moveField, STANDARD_FIELDS, toggleField, type FieldLayout, type StandardField } from '../../core/fields';
+import { filesUnder } from '../../core/index-service';
 import { joinPath } from '../../core/paths';
 import { isoDate } from '../../core/templates';
 import {
@@ -64,7 +65,8 @@ class TemplatePicker extends SuggestModal<TFile> {
 	}
 
 	getSuggestions(query: string): TFile[] {
-		return this.ctx.app.vault.getMarkdownFiles()
+		const root = this.ctx.settings().rootFolder;
+		return filesUnder(this.ctx.app, joinPath(root, templateFolder(this.folder, 'Templates')), 'md')
 			.filter((file) => isTemplatePath(this.ctx.settings().rootFolder, this.folder, file.path) && file.path.toLowerCase().includes(query.toLowerCase()) && file.path.toLowerCase().includes(this.preferences.filter.toLowerCase()))
 			.sort((a, b) => (this.preferences.sort === 'title' ? a.basename.localeCompare(b.basename) : a.path.localeCompare(b.path)) || a.path.localeCompare(b.path));
 	}

@@ -16,12 +16,16 @@ Official references:
 2. `npm run typecheck && bun test && npm run build && npm run lint && npm run package`
    (`package` validates the manifest and writes `dist/<version>/` with the three assets and a zip).
 3. Commit, then tag with the bare version (no `v` prefix) and push the tag.
-4. Create the GitHub release for that tag and attach `dist/<version>/main.js`, `manifest.json`, `styles.css`
-   (or run the "Release Obsidian plugin" workflow manually from the Actions tab).
-5. Install the release in a disposable vault and check the plugin loads.
+4. Pushing the tag runs the `Release` workflow (`.github/workflows/release.yml`): it checks that the tag equals the
+   manifest version, runs the checks, creates build provenance attestations for `main.js` and `styles.css`
+   (`actions/attest-build-provenance`) and publishes the GitHub release with `main.js`, `manifest.json` and
+   `styles.css`. It can also be run manually for an existing tag.
+5. Verify: `gh attestation verify main.js --repo Hakubisual/obtion` on the downloaded asset, then install the release
+   in a disposable vault and check the plugin loads.
 
 ## Policy notes
 
 - No network access, telemetry, ads or self-updates. Files stay inside the vault.
-- The plugin `id` (`obtion`) never changes. `name` must not contain "Obsidian" or "Plugin".
+- The plugin `id` (`obtion`) never changes; the display `name` is Notebase. `name` must not contain "Obsidian",
+  parts of it, or "Plugin".
 - Community directory submission happens at https://community.obsidian.md (Obsidian account + GitHub link).

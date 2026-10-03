@@ -1,10 +1,10 @@
 ---
-description: Rules for editing Obtion notes (project status, tasks, decisions, wiki) in this vault
-globs: Obtion/**/*.md
+description: Rules for editing Notebase notes (project status, tasks, decisions, wiki) in this vault
+globs: Notebase/**/*.md
 alwaysApply: false
 ---
 
-- Notes in `Obtion/` with `kit: project|task|decision|wiki|record` in frontmatter are Obtion notes.
+- Notes in `Notebase/` with `kit: project|task|decision|wiki|record` in frontmatter are Notebase notes.
 - Use only these statuses:
   - project `active|paused|done|dropped`
   - task `todo|doing|blocked|done|dropped`

@@ -1,7 +1,7 @@
 {
 	"id": "obtion",
-	"name": "Obtion",
-	"version": "0.1.0",
+	"name": "Notebase",
+	"version": "0.1.1",
 	"minAppVersion": "1.7.2",
 	"description": "Project status at a glance (principle, to do, done, verification limits) plus wiki pages, databases, templates, relations, quick find and CSV/Markdown import and export. Everything stays in your vault.",
 	"author": "Hakubisual",

@@ -1,7 +1,18 @@
-import { TFile, type App, type Plugin } from 'obsidian';
+import { TFile, TFolder, Vault, type App, type Plugin } from 'obsidian';
 import type { KitIndex } from './context';
 import { isInsideRoot } from './paths';
 import { parseKitItem, type KitItem, type KitKind } from './types';
+
+/** Files below `folder` only (sorted by path), so the plugin never walks the whole vault. */
+export function filesUnder(app: App, folder: string | TFolder, extension?: string): TFile[] {
+	const root = typeof folder === 'string' ? app.vault.getFolderByPath(folder) : folder;
+	const out: TFile[] = [];
+	if (root === null) return out;
+	Vault.recurseChildren(root, (file) => {
+		if (file instanceof TFile && (extension === undefined || file.extension === extension)) out.push(file);
+	});
+	return out.sort((a, b) => a.path.localeCompare(b.path));
+}
 
 export class VaultKitIndex implements KitIndex {
 	private cache: readonly KitItem[] | null = null;
@@ -38,7 +49,7 @@ export class VaultKitIndex implements KitIndex {
 		const root = this.root();
 		const resolve = (link: string, source: string) => this.app.metadataCache.getFirstLinkpathDest(link, source)?.path ?? null;
 		const out: KitItem[] = [];
-		for (const file of this.app.vault.getMarkdownFiles()) {
+		for (const file of filesUnder(this.app, root, 'md')) {
 			if (!isInsideRoot(root, file.path)) continue;
 			const fm = this.app.metadataCache.getFileCache(file)?.frontmatter;
 			if (fm === undefined) continue;

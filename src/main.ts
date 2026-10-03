@@ -2,7 +2,7 @@ import { Notice, Plugin, PluginSettingTab, Setting, type App, type SettingDefini
 import type { KitContext } from './core/context';
 import { VaultKitIndex } from './core/index-service';
 import { checkRootFolder } from './core/paths';
-import { DEFAULT_SETTINGS, parseSettings, parseSettingsChecked, type KitSettings } from './core/settings';
+import { DEFAULT_SETTINGS, LEGACY_ROOT_FOLDER, parseSettings, parseSettingsChecked, type KitSettings } from './core/settings';
 import { VaultSafeWriter } from './core/writer';
 import { FEATURES } from './features/registry';
 
@@ -18,16 +18,18 @@ interface SettingsSection {
 	readonly render: (containerEl: HTMLElement) => void;
 }
 
-export class ObtionPlugin extends Plugin {
+export class NotebasePlugin extends Plugin {
 	private current: KitSettings = DEFAULT_SETTINGS;
 	private readonly sections: SettingsSection[] = [];
 	index!: VaultKitIndex;
 
 	async onload(): Promise<void> {
-		const loaded = parseSettingsChecked(await this.loadData());
+		const saved: unknown = await this.loadData();
+		const legacy = (saved === null || saved === undefined) && this.app.vault.getFolderByPath(LEGACY_ROOT_FOLDER) !== null;
+		const loaded = parseSettingsChecked(legacy ? { rootFolder: LEGACY_ROOT_FOLDER } : saved);
 		this.current = loaded.settings;
 		if (loaded.rootError !== null) {
-			new Notice(`Obtion: the saved workspace folder ${loaded.rootError} Using "${loaded.settings.rootFolder}" until you choose another folder in settings.`, 0);
+			new Notice(`Notebase: the saved workspace folder ${loaded.rootError} Using "${loaded.settings.rootFolder}" until you choose another folder in settings.`, 0);
 		}
 		const root = () => this.current.rootFolder;
 		this.index = new VaultKitIndex(this.app, root);
@@ -63,7 +65,7 @@ export class ObtionPlugin extends Plugin {
 }
 
 class KitSettingTab extends PluginSettingTab {
-	constructor(app: App, private readonly kit: ObtionPlugin, private readonly sections: readonly SettingsSection[]) {
+	constructor(app: App, private readonly kit: NotebasePlugin, private readonly sections: readonly SettingsSection[]) {
 		super(app, kit);
 	}
 
@@ -160,4 +162,4 @@ class KitSettingTab extends PluginSettingTab {
 	}
 }
 
-export default ObtionPlugin;
+export default NotebasePlugin;

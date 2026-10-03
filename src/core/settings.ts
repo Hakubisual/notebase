@@ -10,10 +10,13 @@ export interface KitSettings {
 }
 
 export const DEFAULT_SETTINGS: KitSettings = {
-	rootFolder: 'Obtion',
+	rootFolder: 'Notebase',
 	headings: { principle: 'Principle', todo: 'To do', done: 'Done', limits: 'Verification limits' },
 	features: {},
 };
+
+/** Default workspace folder of 0.1.0, still used when nothing was saved and that folder exists. */
+export const LEGACY_ROOT_FOLDER = 'Obtion';
 
 function str(value: unknown, fallback: string): string {
 	return typeof value === 'string' && value.trim() !== '' ? value.trim() : fallback;

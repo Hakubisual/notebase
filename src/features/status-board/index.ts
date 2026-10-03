@@ -233,8 +233,11 @@ export const statusBoardFeature: KitFeature = {
 			});
 		}
 		plugin.addCommand({ id: 'status-board-insert-samples', name: 'Insert sample projects', callback: () => void insertSamples(ctx) });
-		plugin.registerMarkdownCodeBlockProcessor('obtion-status', (_source, el, mdCtx) => {
-			mdCtx.addChild(new InlineBoard(el, ctx));
-		});
+		// `obtion-status` is the 0.1.0 name, kept so existing notes keep rendering.
+		for (const language of ['notebase-status', 'obtion-status']) {
+			plugin.registerMarkdownCodeBlockProcessor(language, (_source, el, mdCtx) => {
+				mdCtx.addChild(new InlineBoard(el, ctx));
+			});
+		}
 	},
 };

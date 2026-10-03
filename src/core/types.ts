@@ -16,7 +16,7 @@ export const STATUS_BY_KIND = {
 export const KIT_KEY = 'kit';
 
 export interface KitItem {
-	/** Vault-relative path, e.g. "Obtion/Projects/Garden Planner.md". */
+	/** Vault-relative path, e.g. "Notebase/Projects/Garden Planner.md". */
 	readonly path: string;
 	readonly basename: string;
 	readonly kind: KitKind;

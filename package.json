@@ -1,6 +1,6 @@
 {
 	"name": "obtion",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"private": true,
 	"description": "Project status at a glance (principle, to do, done, verification limits) plus wiki pages, databases, templates, relations, quick find and CSV/Markdown import and export. Everything stays in your vault.",
 	"main": "main.js",

@@ -21,14 +21,14 @@ Unit tests: `bun test` (pure logic, deterministic).
 | Status board cards: principle, next action, done, verification limits, due, owner, decisions, related notes | implemented | Missing values show "Not set"; no tasks -> dashed bar, no fake percentage |
 | Board customize (fields, order, status filter, sort) | implemented | Saved; survives restart |
 | Create project / task / decision, sample data | implemented | Task and decision pre-select the current project |
-| `obtion-status` embed | implemented | |
+| `notebase-status` embed | implemented | |
 | Wiki pages, sub-pages, page tree | implemented | |
-| `obtion-children`, `obtion-breadcrumb` blocks | implemented | |
-| Databases `obtion-db`: table, board, gallery; database view | implemented | Inline status edit; text properties editable |
+| `notebase-children`, `notebase-breadcrumb` blocks | implemented | |
+| Databases `notebase-db`: table, board, gallery; database view | implemented | Inline status edit; text properties editable |
 | Database customize (fields, order, filters, sort) | implemented | Saved per block without changing the note |
 | Board drag and drop between columns | implemented | Status dropdown on each card is the tested path; drag was not exercised manually |
 | Templates folder, starter templates, new note from template | implemented | Never overwrites |
-| Relations panel and `obtion-rollup` | implemented | Count by status, percent done |
+| Relations panel and `notebase-rollup` | implemented | Count by status, percent done |
 | Quick find (`kind:`, `status:`, `project:`, `is:open`, quoted phrases), recent, go to project, next open task | implemented | |
 | Import extracted Notion export (Markdown & CSV) | implemented | Dry run first; source files never change |
 | CSV / Markdown export | implemented | UTF-8 with BOM |

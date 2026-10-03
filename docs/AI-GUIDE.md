@@ -1,16 +1,16 @@
-# Using Obtion with an AI assistant
+# Using Notebase with an AI assistant
 
-Obtion stores everything as plain Markdown with a small frontmatter contract, so any AI assistant that can read and
+Notebase stores everything as plain Markdown with a small frontmatter contract, so any AI assistant that can read and
 edit files in your vault (Codex, Claude Code, Cursor, Copilot, local models, ...) can create notes, keep statuses
 current, summarize projects and suggest next actions, while the boards stay readable for people.
 
 Quick start: copy [`examples/ai/AGENTS.md`](../examples/ai/AGENTS.md) to the root of your vault (also save it as
-`CLAUDE.md` for Claude Code, or use [`examples/ai/obtion.mdc`](../examples/ai/obtion.mdc) as a Cursor rule). Then use
+`CLAUDE.md` for Claude Code, or use [`examples/ai/notebase.mdc`](../examples/ai/notebase.mdc) as a Cursor rule). Then use
 the prompts in [`examples/ai/prompts.md`](../examples/ai/prompts.md).
 
 ## The contract
 
-1. **Only notes inside the workspace folder** (default `Obtion/`) with `kit: <kind>` in frontmatter belong to Obtion.
+1. **Only notes inside the workspace folder** (default `Notebase/`) with `kit: <kind>` in frontmatter belong to Notebase.
    Kinds: `project`, `task`, `decision`, `wiki`, `record`.
 2. **Statuses** (use exactly these values):
    - project: `active`, `paused`, `done`, `dropped`
@@ -33,9 +33,9 @@ the prompts in [`examples/ai/prompts.md`](../examples/ai/prompts.md).
 - **Never invent data.** Leave `owner`, `due`, `verified` empty when you do not know them. Never mark something
   `done` or `verified` without evidence the person can open (a file, a link, a test result).
 - **Never overwrite or delete notes.** Create new files with a free name; edit only the lines you need.
-- **Stay inside the workspace folder** for anything Obtion-related. Do not touch `.obsidian/` or plugin data.
+- **Stay inside the workspace folder** for anything Notebase-related. Do not touch `.obsidian/` or plugin data.
 - **Keep internal bookkeeping out of human fields.** If you track your own session, model or token data, use
-  clearly internal keys (`session`, `model`, `agent`, `tokens`, `log`); Obtion hides them by default.
+  clearly internal keys (`session`, `model`, `agent`, `tokens`, `log`); Notebase hides them by default.
 - **Do not change statuses silently.** When you update a status, add one dated line to the note body
   (`- 2026-10-03 · status todo -> doing · reason`).
 - **Propose, then apply.** For bulk changes (more than a few notes), list the planned changes and wait for approval.
@@ -45,12 +45,12 @@ the prompts in [`examples/ai/prompts.md`](../examples/ai/prompts.md).
 
 | task | what to do |
 |---|---|
-| Create a project | New note in `Obtion/Projects/` with `kit: project`, `status: active`, the four sections, one next action |
+| Create a project | New note in `Notebase/Projects/` with `kit: project`, `status: active`, the four sections, one next action |
 | Triage tasks | Read open tasks, suggest status changes with a reason; apply after approval |
 | Weekly summary | Per active project: next action, what moved to Done this week (with evidence), new verification limits |
 | Suggest next actions | For each project, propose the first unchecked To do item or a missing one; never mark done |
 | Clean up | Find tasks without `project`, decisions without `decided`, wiki pages without `parent`; list them |
-| Import | After an Obtion import, review the `Imports/` notes and propose project links |
+| Import | After a Notebase import, review the `Imports/` notes and propose project links |
 
 ## Example notes
 
@@ -86,3 +86,28 @@ due: ""
 ## Verification limits
 - Soil pH not tested yet.
 ```
+
+## 中文摘要（简体）
+
+Notebase 把所有内容都保存为普通 Markdown，并使用一小套固定的 frontmatter 约定。任何能读写你库中文件的 AI 助手
+（Codex、Claude Code、Cursor、Copilot、本地模型等）都可以创建笔记、更新状态、总结项目、建议下一步，而看板依然便于人阅读。
+
+快速开始：把 [`examples/ai/AGENTS.md`](../examples/ai/AGENTS.md) 复制到库的根目录（Claude Code 另存为 `CLAUDE.md`，Cursor 可使用
+[`examples/ai/notebase.mdc`](../examples/ai/notebase.mdc)），再参考 [`examples/ai/prompts.md`](../examples/ai/prompts.md) 中的示例提示词。
+
+**约定**
+- 只有位于工作区文件夹（默认 `Notebase/`）内、且 frontmatter 含有 `kit: <kind>` 的笔记属于 Notebase。
+  类型：`project`、`task`、`decision`、`wiki`、`record`。
+- 状态只用上文列出的值（例如项目：`active`、`paused`、`done`、`dropped`；任务：`todo`、`doing`、`blocked`、`done`、`dropped`）。
+- 面向人的字段优先：`status`、`owner`、`due`（YYYY-MM-DD）、`priority`、`project`（链接）、`decided`、`verified`、`parent`。
+- 链接使用带引号的 wikilink：`project: "[[Garden planner]]"`。
+- 项目笔记保持四个小节：Principle（原则）、To do（待办，第一个未勾选项即下一步）、Done（已完成及证据位置）、
+  Verification limits（尚未验证的内容及原因）。
+
+**AI 助手安全规则**
+- 不编造数据：不知道的 `owner`、`due`、`verified` 留空；没有可打开的证据不标记 `done` 或 `verified`。
+- 不覆盖、不重命名、不删除笔记；新文件使用未占用的名称，只修改需要的行。
+- 只在工作区文件夹内操作，不要改动 `.obsidian/` 或插件数据。
+- 自己的记录（会话、模型、token、日志）写入内部字段 `session`、`model`、`agent`、`tokens`、`log`，Notebase 默认隐藏它们。
+- 修改状态时在正文加一行带日期的记录；批量修改先列出计划，等待确认后再执行。
+- 任何笔记中都不要写入密钥、令牌或密码。

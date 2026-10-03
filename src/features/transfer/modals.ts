@@ -1,5 +1,6 @@
 import { FuzzySuggestModal, Modal, Notice, Setting, TFile, TFolder } from 'obsidian';
 import type { KitContext } from '../../core/context';
+import { filesUnder } from '../../core/index-service';
 import { moveField, STANDARD_FIELDS, toggleField } from '../../core/fields';
 import { sanitizeFileName } from '../../core/paths';
 import { isoDate } from '../../core/templates';
@@ -14,7 +15,7 @@ class FolderPicker extends FuzzySuggestModal<TFolder> {
 		super(ctx.app);
 		this.setPlaceholder('Choose an extracted export folder');
 	}
-	getItems(): TFolder[] { return this.app.vault.getAllLoadedFiles().filter((file): file is TFolder => file instanceof TFolder); }
+	getItems(): TFolder[] { return this.app.vault.getAllFolders(true); }
 	getItemText(folder: TFolder): string { return folder.path || '/'; }
 	onChooseItem(folder: TFolder): void { this.choose(folder); }
 }
@@ -75,9 +76,8 @@ export class ImportModal extends TransferModal {
 				this.contentEl.createEl('p', { text: 'No notes have been written. Close to cancel.' });
 				try {
 					await this.save();
-					const prefix = folder.path ? folder.path + '/' : '';
 					const sources: SourceText[] = [];
-					for (const file of this.app.vault.getFiles().filter((f) => f.path.startsWith(prefix)).sort((a, b) => a.path.localeCompare(b.path))) {
+					for (const file of filesUnder(this.app, folder)) {
 						if (this.closed) return;
 						sources.push({ path: file.path, content: /^(md|csv)$/i.test(file.extension) ? await this.app.vault.read(file) : '' });
 					}

@@ -30,11 +30,14 @@ export const wikiFeature: KitFeature = {
 				}
 			},
 		});
-		ctx.plugin.registerMarkdownCodeBlockProcessor('obtion-children', (source, el, context) => {
-			context.addChild(new WikiPanel(el, runtime, 'children', context.sourcePath, source));
-		});
-		ctx.plugin.registerMarkdownCodeBlockProcessor('obtion-breadcrumb', (_source, el, context) => {
-			context.addChild(new WikiPanel(el, runtime, 'breadcrumb', context.sourcePath));
-		});
+		// `obtion-*` are the 0.1.0 names, kept so existing notes keep rendering.
+		for (const prefix of ['notebase', 'obtion']) {
+			ctx.plugin.registerMarkdownCodeBlockProcessor(`${prefix}-children`, (source, el, context) => {
+				context.addChild(new WikiPanel(el, runtime, 'children', context.sourcePath, source));
+			});
+			ctx.plugin.registerMarkdownCodeBlockProcessor(`${prefix}-breadcrumb`, (_source, el, context) => {
+				context.addChild(new WikiPanel(el, runtime, 'breadcrumb', context.sourcePath));
+			});
+		}
 	},
 };

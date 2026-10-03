@@ -1,6 +1,6 @@
 # Notion import pack (synthetic sample data)
 
-This folder lets anyone recreate the Obtion layout in their own Notion workspace. Nothing here talks to Notion automatically; you import the files yourself.
+This folder lets anyone recreate the Notebase layout in their own Notion workspace. Nothing here talks to Notion automatically; you import the files yourself.
 
 ## Import (official Notion importer)
 
