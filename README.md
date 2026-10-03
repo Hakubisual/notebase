@@ -50,7 +50,7 @@ Markdown in your own vault.
   [latest release](https://github.com/Hakubisual/obtion/releases/latest) into
   `<vault>/.obsidian/plugins/obtion/`, then enable **Notebase** under Settings → Community plugins.
 - **BRAT (beta):** add `Hakubisual/obtion` in the BRAT plugin.
-- **Community plugins:** submitted, not listed yet.
+- **Community plugins:** [Notebase in the community directory](https://community.obsidian.md/plugins/obtion).
 
 The plugin id is `obtion` (the project's earlier name), so the plugin folder is `.obsidian/plugins/obtion/`. Code
 blocks written for 0.1.0 (`obtion-status`, `obtion-db`, `obtion-children`, `obtion-breadcrumb`, `obtion-rollup`) still

@@ -49,7 +49,7 @@ Notebase 让你一眼看清每个项目的**原则、待办、已完成的工作
 - **手动安装：** 从[最新版本](https://github.com/Hakubisual/obtion/releases/latest)下载 `main.js`、`manifest.json`
   和 `styles.css`，放入 `<vault>/.obsidian/plugins/obtion/`，然后在 设置 → 第三方插件 中启用 **Notebase**。
 - **BRAT（测试版）：** 在 BRAT 插件中添加 `Hakubisual/obtion`。
-- **社区插件市场：** 已提交，尚未上架。
+- **社区插件市场：** [社区目录中的 Notebase](https://community.obsidian.md/plugins/obtion)。
 
 插件 id 为 `obtion`（项目的早期名称），因此插件文件夹是 `.obsidian/plugins/obtion/`。为 0.1.0 编写的代码块
 （`obtion-status`、`obtion-db`、`obtion-children`、`obtion-breadcrumb`、`obtion-rollup`）仍可正常显示。如果你使用
